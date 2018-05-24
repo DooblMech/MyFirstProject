@@ -1,0 +1,15 @@
+<?php
+
+use app\auto;
+use app\Editor;
+$di = new auto();
+
+$di->logout();
+$de = new Editor();
+
+$de->editPersonal(1, $_POST);
+$tt = "denied ";
+
+?>
+
+<h3>You have not access</h3>

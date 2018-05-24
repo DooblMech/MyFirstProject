@@ -1,0 +1,36 @@
+<?php
+use app\ConectJSON;
+use app\IdGet;
+use app\auto;
+use app\login;
+
+$da = new ConectJSON();
+$do = new IdGet();
+$du = new auto();
+$di = new login();
+
+$idu = $do->getDataId();
+$idu = (int)($idu);
+$idu = $idu - 1;
+$du->setLogin($_POST['login']);
+
+$du->setPass($_POST['password']);
+;
+$di->checkLogin();
+$tt = "Auth ";
+
+
+
+if ($_SESSION['TOKEN'] == '1') {
+
+    echo 'Hello, ' . $_SESSION['login'] . ' you have been login! ';
+}
+else echo "uncorrect login or password";
+;
+echo "</br>";
+
+?>
+
+<div>
+    <a href="http://primer/user/show/<?= $_SESSION['id'] ; ?>" <h3>Show your resume</h3>
+</div>

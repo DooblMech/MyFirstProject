@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * @var app\ConectJSON $data
+ *
+ */
+
+use app\ConectJSON;
+use app\IdGet;
+use app\login;
+
+$da = new ConectJSON();
+
+$du = new login();
+$do = new IdGet();
+$idu = $do->getDataId();
+$pr = $idu;
+$idu = (int)($idu);
+$idu = $idu - 1;
+$ii = $_SESSION['TOKEN'];
+$tt = "Home ";
+
+?>
+
+
+<div class="container">
+    <h3>This is you resume of <?= $name = $da->getName($idu); ?>  </h3>
+</div>
+
+<div class="jumbotron">
+    <table>
+        <td width="100%">
+            <div class="section-wrapper z-depth-1">
+                <h2>Personal</h2>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Name:</b> <?= $V = $da->getName($idu); ?>
+                </div>
+                </br>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Addresses:</b> <?= $V = $da->getAddresses($idu); ?>
+                </div>
+                </br>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Phone:</b> <?= $V = $da->getPhone($idu); ?>
+                </div>
+                </br>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Email:</b> <?= $V = $da->getEmail($idu); ?>
+                </div>
+            </div>
+        </td>
+        <td width="1000">
+            <div class="container">
+                <img src="public/img/p2.jpg">
+            </div>
+        </td>
+    </table>
+</div>
+
+<hr>
+<div class="jumbotron">
+    <table>
+        <td width="400" align="top">
+            <div class="section-wrapper z-depth-1">
+                <h2>Education</h2>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Institution:</b> <?= $V = $da->getUni($idu); ?>
+                </div>
+                </br>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Period:</b> <?= $V = $da->getPeriodUni($idu); ?>
+                </div>
+                </br>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Specialty:</b> <?= $V = $da->getSpecialty($idu); ?>
+                </div>
+                </br>
+            </div>
+        </td>
+        <td width="400">
+            <div class="section-wrapper z-depth-1">
+                <h2>Experience</h2>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Company:</b> <?= $V = $da->getCompany($idu); ?>
+                </div>
+                </br>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Period:</b> <?= $V = $da->getCompanyPeriod($idu); ?>
+                </div>
+                </br>
+                <div div class="section-wrapper z-depth-1">
+                    <b>Position:</b> <?= $V = $da->getPosition($idu); ?>
+                </div>
+                </br>
+            </div>
+        </td>
+        <td width="400">
+            <div class="section-wrapper z-depth-1">
+                <h2>Skills</h2>
+
+                   <?= $V = $da->getSkillsData($idu); ?>
+
+            </div>
+        </td>
+    </table>
+</div>
+<hr>
+<div class="jumbotron">
+    <h2>Interests</h2>
+    <div div class="section-wrapper z-depth-1">
+        <?= $V = $da->getInterestsData($idu); ?>
+    </div>
+</div>
+
+<div div class="section-wrapper z-depth-1">
+    </br>
+    </br>
+    <form class="navbar-form navbar-right" action="http://primer/user/edit/<?= $pr ?>" method ="post">
+                <button type="submit" class="btn btn-success">Edit</button>
+    </form>
+    </br>
+</div>

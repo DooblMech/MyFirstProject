@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @var app\ConectJSON $data
+ *
+ */
+
+use app\ConectJSON;
+use app\IdGet;
+use app\login;
+
+$da = new ConectJSON();
+$do = new IdGet();
+$du = new login();
+
+$idu = $do->getDataId();
+$idu = (int)($idu);
+$idu = $idu - 1;
+$ii = $_SESSION['TOKEN'];
+$tt = "Home ";
+
+?>
+
+<h2> All users: </h2>
+<hr>
+<div class="container">
+    <ul>
+        <li><a href="http://primer/user/show/1" > <?= $name = $da->getName('0'); ?> </a></li>
+        <li><a href="http://primer/user/show/2" > <?= $name = $da->getName('1'); ?> </a></li>
+    </ul>
+</div>

@@ -1,0 +1,67 @@
+
+
+<?php
+
+use app\Editor;
+use app\IdGet;
+$di = new Editor();
+
+$array = array_diff($_POST, array(''));
+
+$do = new IdGet();
+$idu = $_SESSION['id'];
+
+$b = (array_keys($array));
+
+foreach ($b as $c) {
+
+    switch ($c) {
+
+        case 'name':
+            $di->editPersonal($idu, $array);
+            break;
+        case '$hone':
+            $di->editPersonal($idu, $array);
+            break;
+        case 'addresses':
+            $di->editPersonal($idu, $array);
+            break;
+        case '$email':
+            $di->editPersonal($idu, $array);
+            break;
+        case 'uni':
+            $di->editEducation($idu, $array);
+            break;
+        case 'periodUni':
+            $di->editEducation($idu, $array);
+            break;
+        case 'specialty':
+            $di->editEducation($idu, $array);
+            break;
+        case 'company':
+            $di->editExperience($idu, $array);
+            break;
+        case 'companyperiod':
+            $di->editExperience($idu, $array);
+            break;
+        case 'position':
+            $di->editExperience($idu, $array);
+            break;
+        case 'dataskills':
+            $di->editSkills($idu, $array);
+            break;
+        case 'level':
+            $di->editSkills($idu, $array);
+            break;
+        case 'dataint':
+            $di->editInterests($idu, $array);
+            break;
+    }
+}
+$tt = "Success ";
+
+unset($_POST);
+?>
+<h3>Your data have been edited!</h3>
+
+

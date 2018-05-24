@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @var app\ConectJSON $data
+ *
+ */
+
+use app\ConectJSON;
+use app\IdGet;
+use app\login;
+
+$da = new ConectJSON();
+$do = new IdGet();
+$du = new login();
+
+$idu = $do->getDataId();
+$pr = $idu;
+$idu = (int)($idu);
+$idu = $idu - 1;
+$ii = $_SESSION['TOKEN'];
+$tt = "Home ";
+
+$_SESSION['EDIT'] = 1;
+
+?>
+
+
+<div class="container">
+    <h3>This is your resume,  <?= $name = $da->getName($idu); ?>  </h3>
+    <br>
+    <h4> You can edit his</h4>
+    <hr>
+</div>
+
+<form class="jumbotron" action="http://primer/user/edit/success" method ="post">
+    <h4> Personal:</h4>
+</br>
+<ul >
+    <li><b>Name: </b><input name="name" type="text" placeholder="<?= $name = $da->getName($idu); ?>" class="form-control"> </li>
+    <li><b>Phone: </b><input name="phone" type="text" placeholder="<?= $name = $da->getPhone($idu); ?>" class="form-control"> </li>
+    <li><b>Email: </b><input name="email" type="text" placeholder="<?= $name = $da->getEmail($idu); ?>" class="form-control"> </li>
+    <li><b>Addresses: </b><input name="addresses" type="text" placeholder="<?= $name = $da->getAddresses($idu); ?>" class="form-control"> </li>
+</ul>
+
+    </br>
+<h4> Education:</h4>
+
+    <ul>
+        <li><b>Institution: </b><input name="uni" type="text" placeholder="<?= $name = $da->getUni($idu); ?>" class="form-control"> </li>
+        <li><b>Period: </b><input name="periodUni" type="text" placeholder="<?= $name = $da->getPeriodUni($idu); ?>" class="form-control"> </li>
+        <li><b>Specialty: </b><input name="specialty" type="text" placeholder="<?= $name = $da->getSpecialty($idu); ?>" class="form-control"> </li>
+    </ul>
+
+    </br>
+<h4> Experience:</h4>
+
+    <ul>
+        <li><b>Company:</b><input name="company" type="text" placeholder="<?= $name = $da->getCompany($idu); ?>" class="form-control"> </li>
+        <li><b>Period:</b><input name="companyperiod" type="text" placeholder="<?= $name = $da->getCompanyPeriod($idu); ?>" class="form-control"> </li>
+        <li><b>Position:</b><input name="position" type="text" placeholder="<?= $name = $da->getPosition($idu); ?>" class="form-control"> </li>
+    </ul>
+
+    </br>
+<h4> Skills:</h4>
+
+    <ul>
+        <li><b>Data: </b><input name="dataskills" type="text" placeholder="<?= $name = $da->getSkillsData($idu); ?>" class="form-control"> </li>
+        <li><b>Level: </b><input name="level" type="text" placeholder="<?= $name = $da->getLevel($idu); ?>" class="form-control"> </li>
+            </ul>
+
+    </br>
+<h4> Interests:</h4>
+
+    <ul>
+        <li><input name="dataint" type="text" placeholder="<?= $name = $da->getInterestsData($idu); ?>" class="form-control"> </li>
+    </ul>
+    <button type="submit" class="btn btn-success">Edit</button>
+</form>
